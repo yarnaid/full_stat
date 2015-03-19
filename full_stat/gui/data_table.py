@@ -61,7 +61,19 @@ class DataTable(wx.Panel, wx.lib.mixins.listctrl.ColumnSorterMixin):
             for i in xrange(1, cols_num):
                 self.list.InsertItem(index, i, value[i])
         
-        
-        
-        raise NotImplementedError
-    
+        for i in xrange(cols_num):
+            self.list.SetColumnWidth(i, wx.LIST_AUTOSIZE)
+            
+            
+            # show how to change the colour of a couple items
+            #item = self.list.GetItem(1)
+            #item.SetTextColour(wx.BLUE)
+            #self.list.SetItem(item)
+            #item = self.list.GetItem(4)
+            #item.SetTextColour(wx.RED)
+            #self.list.SetItem(item)
+            
+            #self.currentItem = 0        
+
+    def GetListCtrl(self):
+        return self.list
