@@ -1,5 +1,8 @@
 import wx
+import wx.grid as gridlib
 import os
+
+from data_table import DataTable
 
 APP_EXIT = 1
 _ = wx.GetTranslation
@@ -16,6 +19,36 @@ class FullStatFrame(wx.Frame):
         
     def init_ui(self):
         
+        self.panel = wx.Panel(self)
+        
+        self.init_menus()
+        
+        self.init_panels()
+        
+        
+        self.Show()
+        self.Center()
+        
+        
+    def init_panels(self):
+        main_box = wx.BoxSizer(wx.HORIZONTAL)
+        
+        self.panel.SetBackgroundColour('#4f5049')
+        
+        left_panel = wx.Panel(self.panel)
+        left_panel.SetBackgroundColour('#ededed')
+        b1 = wx.Button(left_panel, -1, label='b1')
+        
+        right_panel = wx.Panel(self.panel)
+        right_panel.SetBackgroundColour('#000000')
+        b2 = wx.Button(right_panel, -1, label='b2')
+        
+        main_box.Add(left_panel, 1, wx.EXPAND|wx.ALL, 20)
+        main_box.Add(right_panel, 1, wx.EXPAND|wx.ALL, 20)
+        
+        self.panel.SetSizer(main_box)
+
+    def init_menus(self):
         menubar = wx.MenuBar()
         
         view_menu = wx.Menu()
@@ -54,20 +87,6 @@ class FullStatFrame(wx.Frame):
         self.status_bar.SetStatusText(_('Ready'))
         
         self.Bind(wx.EVT_RIGHT_DOWN, self.on_right_down)
-        
-        data_sheet = None
-        table_tab = wx.Panel(..., wx.ID_ANY)
-        
-        
-        main_sizer = wx.BoxSizer(orient=wx.HORIZONTAL)
-        left_sizer = wx.BoxSizer(orient=wx.VERTICAL)
-        right_sizer = wx.BoxSizer(orient=wx.VERTICAL)
-        
-        main_sizer.Add(left_sizer)
-        main_sizer.Add(right_sizer)
-        
-        self.Show()
-        self.Center()
         
     def on_save(self, e):
         raise NotImplementedError
