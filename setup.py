@@ -12,9 +12,10 @@ setup(
     description='',
     install_requires=[
           'PySide',
-          'scipy',
-          'numpy',
-          'pandas'
+          'scipy>=0.13',
+          'numpy>=1.8',
+          'pandas',
+          'pyqtgraph'
       ],
     entry_points={
               'console_scripts': [
