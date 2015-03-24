@@ -12,6 +12,7 @@ def run_gui():
     frame = FullStatFrame(None, title=TITLE)
     app.MainLoop()
 
+
 def run_qt():
     app_qt.main()
 
