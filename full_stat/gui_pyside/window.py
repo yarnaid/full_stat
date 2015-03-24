@@ -80,8 +80,7 @@ class MainWindow(QMainWindow):
         # Correlations
         self.corr_group_box = QtGui.QGroupBox(self.tr('Correlation'))
         corr_layout = QtGui.QFormLayout()
-        info_label = QtGui.QLabel('<i>Over first 2 columns</i>')
-        corr_layout.addWidget(info_label)
+        corr_layout.addWidget(QtGui.QLabel('<i>Over first 2 columns</i>'))
 
         def add_corr(name, calc):
             corr_widget = ViewWidget()
@@ -97,7 +96,7 @@ class MainWindow(QMainWindow):
         # Other statistics
         self.misc_group_box = QtGui.QGroupBox(self.tr('Other'))
         misc_layout = QtGui.QFormLayout()
-        misc_layout.addWidget(info_label)  # see in correlation section
+        misc_layout.addWidget(QtGui.QLabel('<i>Over first 2 columns</i>'))
 
         def add_other(name, calc):
             widget = ViewWidget()
@@ -206,7 +205,7 @@ class MainWindow(QMainWindow):
     def read_settings(self):
         self.settings.beginGroup("MainWindow")
         self.resize(self.settings.value("size", QtCore.QSize(400, 400)))
-        self.move(self.settings.value("pos", QtCore.QPoint(200, 200)))
+        self.move(self.settings.value("pos", QtCore.QPoint(400, 800)))
         self.settings.endGroup()
 
     def closeEvent(self, event):
